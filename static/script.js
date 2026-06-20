@@ -1,6 +1,6 @@
 const btn = document.getElementById("mic-btn");
 const sendBtn = document.getElementById("send-btn");
-const textInput = document.getElementById("text-command");
+const textInput = document.getElementById("command-input");
 const output = document.getElementById("response");
 
 async function processCommand(command){
