@@ -3,6 +3,27 @@ const sendBtn = document.getElementById("send-btn");
 const textInput = document.getElementById("command-input");
 const output = document.getElementById("response");
 
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+recognition.onresult = function(event) {
+
+    let command = event.results[0][0].transcript.toLowerCase();
+
+    if(command.includes("hey syra")) {
+
+        output.innerHTML = "👋 Hi! How can I help you?";
+
+        let speech = new SpeechSynthesisUtterance(
+            "Hi! How can I help you?"
+        );
+
+        speechSynthesis.speak(speech);
+        return;
+    }
+
+    processCommand(command);
+};
+
 async function processCommand(command){
 
     output.innerHTML = "You said: " + command;
@@ -89,11 +110,23 @@ btn.addEventListener("click",()=>{
 
     recognition.onresult = function(event){
 
-        let command =
-        event.results[0][0].transcript;
+    let command =
+    event.results[0][0].transcript.toLowerCase();
 
-        processCommand(command);
-    };
+    if(command.includes("hey syra")){
+
+        output.innerHTML = "👋 Hi! How can I help you?";
+
+        let speech = new SpeechSynthesisUtterance(
+            "Hi! How can I help you?"
+        );
+
+        speechSynthesis.speak(speech);
+        return;
+    }
+
+    processCommand(command);
+};
 
     recognition.onerror = function(event){
 
