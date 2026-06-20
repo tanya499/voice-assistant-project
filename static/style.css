@@ -1,5 +1,5 @@
 body{
-    background:linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
+    background: linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
     color:white;
     font-family:Arial,sans-serif;
     min-height:100vh;
@@ -9,14 +9,7 @@ body{
 .main-container{
     width:90%;
     margin:auto;
-    margin-top:30px;
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-}
-
-.chat-container{
-    flex:1;
+    padding-top:20px;
 }
 
 .logo{
@@ -32,14 +25,8 @@ body{
     object-fit:cover;
 
     box-shadow:
-    0 0 10px rgba(0,212,255,0.5),
-    0 0 20px rgba(0,212,255,0.4);
-
-    transition:0.3s;
-}
-
-.logo img:hover{
-    transform:scale(1.05);
+    0 0 8px rgba(0,212,255,0.4),
+    0 0 15px rgba(0,212,255,0.3);
 }
 
 .input-box{
@@ -49,8 +36,7 @@ body{
     border-radius:40px;
     padding:10px 15px;
     gap:12px;
-    width:100%;
-    box-sizing:border-box;
+    margin-bottom:20px;
 }
 
 .input-box input{
@@ -70,12 +56,12 @@ body{
     cursor:pointer;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 }
 
 .mic-btn{
-    background:#374151;
+    background:#1f2937;
     color:white;
 }
 
@@ -84,28 +70,29 @@ body{
     color:white;
 }
 
+.bottom-section{
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+}
+
 #response{
-    margin-top:20px;
+    flex:1;
 
     background:rgba(255,255,255,0.05);
     backdrop-filter:blur(15px);
 
     border-radius:20px;
-    padding:20px;
+    padding:25px;
 
     min-height:350px;
 
-    box-shadow:
-    0 0 15px rgba(0,212,255,0.2);
+    box-shadow:0 0 15px rgba(0,212,255,0.2);
 }
 
 #response h3{
     color:#38bdf8;
     margin-top:0;
-}
-
-#response h3 i{
-    margin-right:8px;
 }
 
 .history-panel{
@@ -120,8 +107,7 @@ body{
 
     min-height:350px;
 
-    box-shadow:
-    0 0 15px rgba(0,212,255,0.2);
+    box-shadow:0 0 15px rgba(0,212,255,0.2);
 }
 
 .history-panel h3{
@@ -130,20 +116,15 @@ body{
     margin-top:0;
 }
 
-.history-panel h3 i{
-    margin-right:8px;
-}
-
 #history-list{
     margin-top:15px;
 }
 
 #history-list div{
     background:rgba(255,255,255,0.08);
-    padding:12px;
+    padding:10px;
+    border-radius:10px;
     margin-bottom:10px;
-    border-radius:12px;
-    color:white;
 }
 
 #clear-history{
@@ -163,6 +144,12 @@ body{
 #clear-history:hover{
     background:#ff4d4d;
     color:white;
+}
+
+.history-panel h3 i,
+#response h3 i{
+    color:#38bdf8;
+    margin-right:8px;
 }
 
 #clear-history i{
