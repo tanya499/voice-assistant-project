@@ -13,27 +13,41 @@ body{
 
 .main-container{
     display:flex;
+    width:90%;
+    margin:auto;
+    margin-top:40px;
     gap:20px;
-    align-items:flex-start;
 }
 
 .chat-container{
-    width:70%;
+    flex:3;
 }
 
 .history-panel{
-    width:30%;
+    flex:1;
     background:rgba(255,255,255,0.05);
     backdrop-filter:blur(15px);
-    padding:20px;
     border-radius:20px;
-    color:white;
+    padding:20px;
+
     max-height:500px;
     overflow-y:auto;
+
+    box-shadow:0 0 15px rgba(0,212,255,0.2);
 }
 
-#history-list{
-    margin-top:10px;
+.history-panel h3{
+    text-align:center;
+    margin-bottom:15px;
+    color:#38bdf8;
+}
+
+#history-list div{
+    background:rgba(255,255,255,0.08);
+    padding:10px;
+    margin-bottom:8px;
+    border-radius:10px;
+    word-wrap:break-word;
 }
 
 .logo{
