@@ -51,6 +51,45 @@ def command():
         reply = "Hi! How can I help you?"
 
 
+    elif "who are you" in text:
+        reply = "I am Syra, your personal voice assistant."
+
+    elif "what is your name" in text:
+        reply = "My name is Syra."
+
+    elif "how are you" in text:
+        reply = "I am fine. Thank you for asking."
+
+    elif "good morning" in text:
+        reply = "Good Morning! Have a great day."
+
+    elif "good afternoon" in text:
+        reply = "Good Afternoon! How can I help you?"
+
+    elif "good evening" in text:
+        reply = "Good Evening! Hope you are doing well."
+
+    elif "thank you" in text:
+        reply = "You are welcome. Anything else?"
+
+    elif "bye" in text:
+        reply = "Goodbye. Have a nice day."
+
+    elif "i love you" in text:
+        reply = "Thank you. That's very kind of you."
+
+    elif "who made you" in text:
+        reply = "I was created by Tanya."
+
+    elif "tell me a joke" in text:
+        reply = "Why do programmers prefer dark mode? Because light attracts bugs."
+
+    elif "what can you do" in text:
+        reply = "I can answer questions, tell time and date, and respond to voice commands."
+
+    elif "hello" in text:
+        reply = "Hello! How can I help you today?"
+
     elif "gmail" in text:
         reply = "Opening Gmail"
 
@@ -85,6 +124,23 @@ def command():
 
     return jsonify({"response": reply})
 
+@app.route('/history')
+def history():
+
+    conn = sqlite3.connect("commands.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT command, response, timestamp
+        FROM commands
+        ORDER BY id DESC
+        LIMIT 20
+    """)
+
+    data = cursor.fetchall()
+    conn.close()
+
+    return jsonify(data)
 
 if __name__ == "__main__":
     app.run(debug=True)

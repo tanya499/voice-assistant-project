@@ -44,6 +44,13 @@ async function processCommand(command){
 
         output.innerHTML += "<br><br>🤖 " + data.response;
 
+        let historyList = document.getElementById("history-list");
+
+        let item = document.createElement("div");
+        item.innerHTML = "🔍 " + command;
+
+        historyList.prepend(item);
+
         if(data.response === "Opening Google"){
             window.open("https://www.google.com","_blank");
         }
