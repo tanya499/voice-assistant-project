@@ -14,13 +14,14 @@
 
 <div class="main-container">
 
-    <!-- LEFT SIDE -->
     <div class="chat-container">
 
+        <!-- Logo -->
         <div class="logo">
             <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="SYRA Logo">
         </div>
 
+        <!-- Input Box -->
         <div class="input-box">
 
             <input
@@ -39,31 +40,39 @@
 
         </div>
 
-        <div id="response">
-            <h3>
-                <i class="fas fa-robot"></i>
-                Response
-            </h3>
+        <!-- Response + History -->
+        <div class="bottom-section">
 
-            Assistant is waiting for your command...
+            <!-- Response Box -->
+            <div id="response">
+
+                <h3>
+                    <i class="fas fa-robot"></i>
+                    Response
+                </h3>
+
+                Assistant is waiting for your command...
+
+            </div>
+
+            <!-- Chat History -->
+            <div class="history-panel">
+
+                <h3>
+                    <i class="fas fa-clock"></i>
+                    Chat History
+                </h3>
+
+                <div id="history-list"></div>
+
+                <button id="clear-history">
+                    <i class="fas fa-trash"></i>
+                    Clear History
+                </button>
+
+            </div>
+
         </div>
-
-    </div>
-
-    <!-- RIGHT SIDE -->
-    <div class="history-panel">
-
-        <h3>
-            <i class="fas fa-clock"></i>
-            Chat History
-        </h3>
-
-        <div id="history-list"></div>
-
-        <button id="clear-history">
-            <i class="fas fa-trash"></i>
-            Clear History
-        </button>
 
     </div>
 
