@@ -59,15 +59,20 @@ h1{
 }
 
 .icon-btn{
-    width:60px;
-    height:60px;
+    width:65px;
+    height:65px;
     border-radius:50%;
     border:none;
     cursor:pointer;
-    font-size:24px;
     display:flex;
     justify-content:center;
     align-items:center;
+    flex-shrink:0;
+}
+
+.mic-btn,
+.send-btn{
+    border-radius:50%;
 }
 
 .mic-btn{
