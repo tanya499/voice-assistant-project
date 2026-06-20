@@ -47,8 +47,24 @@ def command():
     elif "youtube" in text:
         reply = "Opening YouTube"
 
+    elif "date" in command:
+        reply = datetime.now().strftime("%d-%m-%Y")
+
+    elif "gmail" in command:
+        reply = "Opening Gmail"
+
+    elif "chatgpt" in command:
+        reply = "Opening ChatGPT"
+
+    elif "linkedin" in command:
+        reply = "Opening LinkedIn"
+
+    elif "weather" in command:
+        reply = "Opening weather"
+
     else:
-        reply = "Sorry, I did not understand"
+        reply = "Sorry, I didn't understand that command."
+
 
     # Save to Database
     conn = sqlite3.connect("commands.db")

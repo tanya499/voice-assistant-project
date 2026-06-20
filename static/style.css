@@ -75,3 +75,9 @@ button:hover{
     min-height:80px;
     text-align:left;
 }
+
+.logo img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+}

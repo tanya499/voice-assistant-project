@@ -31,6 +31,22 @@ async function processCommand(command){
             window.open("https://www.youtube.com","_blank");
         }
 
+        if(data.response === "Opening Gmail"){
+            window.open("https://mail.google.com","_blank");
+        }
+
+        if(data.response === "Opening ChatGPT"){
+            window.open("https://chatgpt.com","_blank");
+        }
+
+        if(data.response === "Opening LinkedIn"){
+            window.open("https://www.linkedin.com","_blank");
+        }
+
+        if(data.response === "Opening Weather"){
+            window.open("https://www.google.com/search?q=weather","_blank");
+        }
+
         let speech = new SpeechSynthesisUtterance(data.response);
         speech.lang = "en-US";
         speechSynthesis.speak(speech);
