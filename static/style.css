@@ -73,7 +73,7 @@ body{
 .bottom-section{
     display:flex;
     gap:20px;
-    align-items:flex-start;
+    align-items:stretch;
 }
 
 #response{
@@ -85,7 +85,7 @@ body{
     border-radius:20px;
     padding:25px;
 
-    min-height:350px;
+    height:250px;
 
     box-shadow:0 0 15px rgba(0,212,255,0.2);
 }
@@ -96,8 +96,8 @@ body{
 }
 
 .history-panel{
-    width:300px;
-    min-width:300px;
+    width:280px;
+    min-width:280px;
 
     background:rgba(255,255,255,0.05);
     backdrop-filter:blur(15px);
@@ -105,9 +105,11 @@ body{
     border-radius:20px;
     padding:20px;
 
-    min-height:350px;
+    height:250px;
 
     box-shadow:0 0 15px rgba(0,212,255,0.2);
+
+    overflow-y: auto;
 }
 
 .history-panel h3{
