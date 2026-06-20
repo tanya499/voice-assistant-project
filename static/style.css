@@ -43,32 +43,40 @@ h1{
 .input-box{
     display:flex;
     align-items:center;
-    background:#0f172a;
-    border-radius:50px;
-    padding:10px;
+    background:#111827;
+    border-radius:40px;
+    padding:10px 15px;
+    gap:12px;
 }
 
 .input-box input{
     flex:1;
     background:transparent;
     border:none;
+    outline:none;
     color:white;
     font-size:18px;
-    outline:none;
 }
 
-#mic-btn i,
-#send-btn i{
-    font-size:22px;
+.icon-btn{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    border:none;
+    cursor:pointer;
+    font-size:24px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-#mic-btn{
-    background:#1e293b;
+.mic-btn{
+    background:#1f2937;
     color:white;
 }
 
-#send-btn{
-    background:#2563eb;
+.send-btn{
+    background:#3b82f6;
     color:white;
 }
 
