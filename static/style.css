@@ -1,8 +1,6 @@
 body{
-    margin:0;
-    padding:0;
+    background:#06153a;
     font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a);
     display:flex;
     justify-content:center;
     align-items:center;
@@ -10,14 +8,17 @@ body{
 }
 
 .container{
-    width:90%;
-    max-width:700px;
+    width:80%;
+    max-width:900px;
     text-align:center;
-    background:rgba(255,255,255,0.08);
-    padding:30px;
-    border-radius:20px;
-    backdrop-filter:blur(10px);
-    box-shadow:0 0 25px rgba(0,0,0,0.3);
+
+    background:rgba(20,40,90,0.4);
+    backdrop-filter:blur(15px);
+
+    border-radius:25px;
+    padding:40px;
+
+    box-shadow:0 0 30px rgba(0,200,255,0.25);
 }
 
 .logo{
@@ -41,11 +42,11 @@ h1{
 }
 
 input{
-    flex:1;
-    padding:15px;
+    width:75%;
+    padding:18px;
     border:none;
-    border-radius:10px;
-    font-size:16px;
+    border-radius:15px;
+    font-size:18px;
 }
 
 button{
@@ -64,20 +65,34 @@ button:hover{
 
 #listen-btn{
     width:100%;
-    margin-bottom:20px;
+    margin-top:15px;
+
+    background:linear-gradient(90deg,#38bdf8,#2563eb);
+
+    padding:18px;
+    border:none;
+    border-radius:15px;
+
+    color:white;
+    font-size:20px;
+    cursor:pointer;
 }
 
 #response{
-    background:white;
-    color:black;
+    margin-top:20px;
+    background:#081a45;
+    color:white;
+
+    min-height:120px;
     padding:20px;
-    border-radius:12px;
-    min-height:80px;
+
+    border-radius:15px;
     text-align:left;
 }
 
 .logo img{
-    width:120px;
-    height:120px;
+    width:220px;
+    height:220px;
     object-fit:contain;
+    border-radius:25px;
 }
