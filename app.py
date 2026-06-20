@@ -47,19 +47,20 @@ def command():
     elif "youtube" in text:
         reply = "Opening YouTube"
 
-    elif "date" in command:
-        reply = datetime.now().strftime("%d-%m-%Y")
+    elif "hey syra" in text:
+        reply = "Hi! How can I help you?"
 
-    elif "gmail" in command:
+
+    elif "gmail" in text:
         reply = "Opening Gmail"
 
-    elif "chatgpt" in command:
+    elif "chatgpt" in text:
         reply = "Opening ChatGPT"
 
-    elif "linkedin" in command:
+    elif "linkedin" in text:
         reply = "Opening LinkedIn"
 
-    elif "weather" in command:
+    elif "weather" in text:
         reply = "Opening weather"
 
     else:
