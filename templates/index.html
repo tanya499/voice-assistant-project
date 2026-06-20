@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>SYRA - Smart Voice Assistant</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -17,12 +18,16 @@
         <div class="input-box">
         <input type="text" id="text-command" placeholder="Type your command here...">
 
-        <button id="mic-btn">🎤</button>
+        <button id="mic-btn">
+            <i class="fa-solid fa-microphone"></i>
+        </button>
 
-        <button id="send-btn">➤</button>
+        <button id="send-btn">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+        
     </div>
 
-        <button id="listen-btn">🎤 Speak</button>
 
         <div id="response">
             Assistant is waiting for your command...

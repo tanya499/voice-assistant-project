@@ -1,4 +1,4 @@
-const btn = document.getElementById("listen-btn");
+const btn = document.getElementById("mic-btn");
 const sendBtn = document.getElementById("send-btn");
 const textInput = document.getElementById("text-command");
 const output = document.getElementById("response");

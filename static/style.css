@@ -43,10 +43,9 @@ h1{
 .input-box{
     display:flex;
     align-items:center;
-    background:#111827;
+    background:#0f172a;
     border-radius:50px;
-    padding:8px;
-    margin-top:20px;
+    padding:10px;
 }
 
 .input-box input{
@@ -55,20 +54,21 @@ h1{
     border:none;
     color:white;
     font-size:18px;
-    padding:15px;
     outline:none;
 }
 
-#mic-btn,
+#mic-btn i,
+#send-btn i{
+    font-size:22px;
+}
+
+#mic-btn{
+    background:#1e293b;
+    color:white;
+}
+
 #send-btn{
-    width:55px;
-    height:55px;
-    border:none;
-    border-radius:50%;
-    margin-left:8px;
-    cursor:pointer;
-    font-size:20px;
-    background:#00d4ff;
+    background:#2563eb;
     color:white;
 }
 
@@ -103,13 +103,11 @@ button:hover{
 
 #response{
     margin-top:20px;
-    background:#081a45;
+    background:rgba(0,0,0,0.25);
+    border-radius:20px;
+    padding:25px;
+    min-height:180px;
     color:white;
-
-    min-height:120px;
-    padding:20px;
-
-    border-radius:15px;
     text-align:left;
 }
 
@@ -120,13 +118,18 @@ button:hover{
     object-fit:cover;
 
     box-shadow:
-        0 0 20px #00d4ff,
-        0 0 40px #00d4ff,
-        0 0 60px #00d4ff;
+    0 0 8px rgba(0,212,255,0.4),
+    0 0 15px rgba(0,212,255,0.3);
 
     transition:0.3s;
 }
 
 .logo img:hover{
     transform:scale(1.05);
+}
+
+.logo{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
