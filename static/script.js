@@ -47,7 +47,19 @@ async function processCommand(command){
         let historyList = document.getElementById("history-list");
 
         let item = document.createElement("div");
-        item.innerHTML = "🔍 " + command;
+        let time = new Date().toLocaleTimeString([], {
+            hour:'2-digit',
+            minute:'2-digit'
+        });
+
+        item.innerHTML = `
+        <i class="fas fa-clock" style="color:#38bdf8;"></i>
+        ${command}
+        <br>
+        <span style="color:#94a3b8;font-size:12px;">
+        ${time}
+        </span>
+        `;
 
         historyList.prepend(item);
 
@@ -140,4 +152,12 @@ btn.addEventListener("click",()=>{
         output.innerHTML =
         "❌ Error: " + event.error;
     };
+});
+
+document.getElementById("clear-history")
+.addEventListener("click", function(){
+
+    document.getElementById("history-list")
+    .innerHTML = "";
+
 });
