@@ -40,7 +40,18 @@ btn.addEventListener("click", () => {
 
             output.innerHTML += "<br><br>🤖 " + data.response;
 
+            // Open websites
+            if (data.response === "Opening Google") {
+                window.open("https://www.google.com", "_blank");
+            }
+
+            if (data.response === "Opening YouTube") {
+                window.open("https://www.youtube.com", "_blank");
+            }
+
+            // Voice reply
             let speech = new SpeechSynthesisUtterance(data.response);
+            speech.lang = "en-US";
             speechSynthesis.speak(speech);
 
         } catch (error) {
