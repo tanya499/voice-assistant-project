@@ -139,7 +139,7 @@ btn.addEventListener("click",()=>{
 
     const recognition = new SpeechRecognition();
 
-    recognition.lang = "en-US";
+    recognition.lang = "en-IN";
 
     output.innerHTML = "🎤 Listening...";
 
@@ -150,7 +150,14 @@ btn.addEventListener("click",()=>{
     let command =
     event.results[0][0].transcript.toLowerCase();
 
-    if(command.includes("hey syra")){
+    if(
+        command.includes("hey syra") ||
+        command.includes("hey sira") ||
+        command.includes("hey syria") ||
+        command.includes("hey saira") ||
+        command.includes("hey sara") ||
+        command.includes("hey sai ram") 
+    ){
 
         output.innerHTML = "👋 Hi! How can I help you?";
 
