@@ -3,6 +3,15 @@ const sendBtn = document.getElementById("send-btn");
 const textInput = document.getElementById("command-input");
 const output = document.getElementById("response");
 
+output.innerHTML = `
+<h3><i class="fas fa-robot"></i> Response</h3>
+
+<div class="welcome-card">
+    <h2>👋 Welcome to SYRA</h2>
+    <p>Your Smart Voice Assistant</p>
+</div>
+`;
+
 const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
 
 recognition.onresult = function(event) {
@@ -40,9 +49,18 @@ async function processCommand(command){
             })
         });
 
+        output.innerHTML = `
+        <h3><i class="fas fa-robot"></i> Response</h3>
+        🤖 SYRA is typing...
+        `;
+
         let data = await response.json();
 
-        output.innerHTML += "<br><br>🤖 " + data.response;
+        output.innerHTML = `
+        <h3><i class="fas fa-robot"></i> Response</h3>
+        ${data.response}
+        `;
+
 
         let historyList = document.getElementById("history-list");
 
@@ -88,7 +106,7 @@ async function processCommand(command){
         }
 
         let speech = new SpeechSynthesisUtterance(data.response);
-        speech.lang = "en-US";
+        speech.lang = "en-IN";
         speechSynthesis.speak(speech);
 
     }catch(error){
@@ -161,3 +179,13 @@ document.getElementById("clear-history")
     .innerHTML = "";
 
 });
+
+function updateTime() {
+    const now = new Date();
+    document.getElementById("datetime").innerHTML =
+        "📅 " + now.toLocaleDateString() +
+        " | 🕒 " + now.toLocaleTimeString();
+}
+
+setInterval(updateTime, 1000);
+updateTime();

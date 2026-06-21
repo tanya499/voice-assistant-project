@@ -157,3 +157,56 @@ body{
 #clear-history i{
     margin-right:8px;
 }
+
+#datetime{
+    text-align:center;
+    color:#38bdf8;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.icon-btn{
+    transition:0.3s;
+}
+
+.icon-btn:hover{
+    transform:scale(1.1);
+    box-shadow:0 0 15px #38bdf8;
+}
+
+.welcome-card{
+    text-align:center;
+    padding:30px;
+}
+
+.welcome-card h2{
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.welcome-card p{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
+
+.welcome-card ul{
+    list-style:none;
+    padding:0;
+}
+
+.welcome-card li{
+    padding:8px;
+    color:white;
+}
+
+.title{
+    text-align:center;
+    color:white;
+    margin:5px;
+}
+
+.subtitle{
+    text-align:center;
+    color:#94a3b8;
+    margin-bottom:20px;
+}
