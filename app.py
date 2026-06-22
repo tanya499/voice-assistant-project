@@ -1,6 +1,12 @@
 from flask import Flask, render_template, request, jsonify
 from datetime import datetime
 import sqlite3
+import os
+import google.generativeai as genai
+
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 app = Flask(__name__)
 
@@ -103,7 +109,11 @@ def command():
         reply = "Opening weather"
 
     else:
-        reply = "Sorry, I didn't understand that command."
+        try:
+            response = model.generate_content(text)
+            reply = response.text
+        except Exception as e:
+            reply = "Error: " + str(e)
 
 
     # Save to Database
