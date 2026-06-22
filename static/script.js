@@ -2,6 +2,7 @@ const btn = document.getElementById("mic-btn");
 const sendBtn = document.getElementById("send-btn");
 const textInput = document.getElementById("command-input");
 const output = document.getElementById("response");
+const logo = document.getElementById("syraLogo");
 
 output.innerHTML = `
 <h3><i class="fas fa-robot"></i> Response</h3>
@@ -35,6 +36,9 @@ recognition.onresult = function(event) {
 
 async function processCommand(command){
 
+    logo.classList.remove("listening");
+    logo.classList.add("thinking");
+
     output.innerHTML = "You said: " + command;
 
     try{
@@ -55,6 +59,9 @@ async function processCommand(command){
         `;
 
         let data = await response.json();
+
+        logo.classList.remove("thinking");
+        logo.classList.add("speaking");
 
         output.innerHTML = `
         <h3><i class="fas fa-robot"></i> Response</h3>
@@ -107,6 +114,11 @@ async function processCommand(command){
 
         let speech = new SpeechSynthesisUtterance(data.response);
         speech.lang = "en-IN";
+
+        speech.onend = function(){
+            logo.classList.remove("speaking");
+        };
+
         speechSynthesis.speak(speech);
 
     }catch(error){
@@ -142,6 +154,8 @@ btn.addEventListener("click",()=>{
     recognition.lang = "en-IN";
 
     output.innerHTML = "🎤 Listening...";
+
+    logo.classList.add("listening");
 
     recognition.start();
 

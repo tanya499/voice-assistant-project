@@ -218,3 +218,51 @@ body{
     margin-bottom:20px;
 }
 
+#syraLogo{
+    width:180px;
+    height:180px;
+    border-radius:25px;
+    object-fit:cover;
+    transition:all 0.3s ease;
+    animation:idleGlow 3s infinite;
+}
+
+@keyframes idleGlow {
+    0%,100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 10px #00d4ff);
+    }
+    50% {
+        transform: scale(1.03);
+        filter: drop-shadow(0 0 25px #00d4ff);
+    }
+}
+
+.listening {
+    animation: listeningPulse 0.8s infinite;
+}
+
+@keyframes listeningPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+
+.thinking{
+    animation:thinkingSpin 2s linear infinite;
+}
+
+@keyframes thinkingSpin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+.speaking{
+    animation:speakingPulse 0.5s infinite alternate;
+}
+
+@keyframes speakingPulse{
+    from{transform:scale(1);}
+    to{transform:scale(1.12);}
+}
