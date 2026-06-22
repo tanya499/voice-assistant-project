@@ -113,15 +113,21 @@ async function processCommand(command){
         }
 
         let speech = new SpeechSynthesisUtterance(data.response);
+
         speech.lang = "en-IN";
 
-        speech.onend = function(){
+        speech.onend = () => {
             logo.classList.remove("speaking");
         };
 
         speechSynthesis.speak(speech);
 
     }catch(error){
+
+        logo.classList.remove("listening");
+        logo.classList.remove("thinking");
+        logo.classList.remove("speaking");
+        
         output.innerHTML += "<br><br>❌ Server Error";
     }
 }
@@ -158,6 +164,9 @@ btn.addEventListener("click",()=>{
     logo.classList.add("listening");
 
     recognition.start();
+
+    logo.classList.remove("thinking","speaking");
+    logo.classList.add("listening");
 
     recognition.onresult = function(event){
 

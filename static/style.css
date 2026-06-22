@@ -266,3 +266,110 @@ body{
     from{transform:scale(1);}
     to{transform:scale(1.12);}
 }
+
+/* ===== SYRA ADVANCED LOGO ===== */
+
+.logo-wrapper{
+    position:relative;
+    width:250px;
+    height:250px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.logo-img{
+    width:180px;
+    height:180px;
+    border-radius:25px;
+    object-fit:cover;
+    z-index:10;
+    transition:all .4s ease;
+}
+
+.outer-ring,
+.middle-ring,
+.inner-ring{
+    position:absolute;
+    border-radius:50%;
+    border:2px solid rgba(0,212,255,.5);
+}
+
+.outer-ring{
+    width:250px;
+    height:250px;
+    animation:rotate1 8s linear infinite;
+}
+
+.middle-ring{
+    width:220px;
+    height:220px;
+    animation:rotate2 6s linear infinite reverse;
+}
+
+.inner-ring{
+    width:190px;
+    height:190px;
+    animation:rotate1 4s linear infinite;
+}
+
+.wave-container{
+    position:absolute;
+    width:340px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.wave{
+    width:80px;
+    height:6px;
+    background:#38bdf8;
+    box-shadow:0 0 20px #38bdf8;
+}
+
+@keyframes rotate1{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+@keyframes rotate2{
+    from{transform:rotate(360deg);}
+    to{transform:rotate(0deg);}
+}
+
+/* Listening */
+
+.listening .wave-left,
+.listening .wave-right{
+    animation:soundWave .5s infinite;
+}
+
+@keyframes soundWave{
+    0%{height:10px;}
+    50%{height:70px;}
+    100%{height:10px;}
+}
+
+/* Thinking */
+
+.thinking{
+    animation:thinkingSpin 2s linear infinite;
+}
+
+@keyframes thinkingSpin{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+/* Speaking */
+
+.speaking .logo-img{
+    animation:speakPulse .5s infinite alternate;
+}
+
+@keyframes speakPulse{
+    from{transform:scale(1);}
+    to{transform:scale(1.12);}
+}

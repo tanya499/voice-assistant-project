@@ -17,9 +17,22 @@
     <div class="chat-container">
 
         <!-- Logo -->
-        <div class="logo">
-            <img src="{{ url_for('static', filename='logo.jpeg') }}" alt="SYRA Logo" id="syraLogo">
+        <div class="logo-wrapper" id="syraLogo">
+
+            <div class="outer-ring"></div>
+            <div class="middle-ring"></div>
+            <div class="inner-ring"></div>
+
+        <div class="wave-container">
+            <span class="wave wave-left"></span>
+            <span class="wave wave-right"></span>
         </div>
+
+        <img src="{{ url_for('static', filename='logo.jpeg') }}"
+         alt="SYRA Logo"
+         class="logo-img">
+
+    </div>
 
         <h2 class="title">SYRA Voice Assistant</h2>
         <p class="subtitle">
