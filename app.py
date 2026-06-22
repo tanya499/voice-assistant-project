@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from datetime import datetime
 import sqlite3
 import os
+import re
 import google.generativeai as genai
 
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
@@ -111,7 +112,7 @@ def command():
     else:
         try:
             response = model.generate_content(text)
-            reply = response.text
+            reply = re.sub(r'[*#`]','',response.text)
         except Exception as e:
             reply = "Error: " + str(e)
 
