@@ -248,13 +248,21 @@ if(canvas){
 
     renderer.setSize(260,260);
 
-    const geometry = new THREE.BoxGeometry(2,2,2);
+    const geometry = new THREE.IcosahedronGeometry(2, 50);
 
-    const material = new THREE.MeshStandardMaterial({
-        color:0x66ccff,
-        emissive:0xaa00ff,
-        roughness:0.2,
-        metalness:0.8
+    const material = new THREE.MeshPhysicalMaterial({
+    color: 0xaa00ff,
+    emissive: 0x6600ff,
+    emissiveIntensity: 2,
+
+    roughness: 0.1,
+    metalness: 0.2,
+
+    transmission: 0.9,
+    thickness: 1.5,
+
+    transparent: true,
+    opacity: 1
     });
 
     const orbMesh = new THREE.Mesh(
@@ -283,12 +291,19 @@ if(canvas){
     camera.position.z = 5;
 
     function animate(){
-        requestAnimationFrame(animate);
 
-        orbMesh.rotation.x += 0.003;
-        orbMesh.rotation.y += 0.005;
+    requestAnimationFrame(animate);
 
-        renderer.render(scene,camera);
+    orbMesh.rotation.x += 0.003;
+    orbMesh.rotation.y += 0.005;
+
+    orbMesh.scale.x =
+        1 + Math.sin(Date.now()*0.002)*0.05;
+
+    orbMesh.scale.y =
+        1 + Math.cos(Date.now()*0.002)*0.05;
+
+    renderer.render(scene,camera);
     }
 
     animate();
