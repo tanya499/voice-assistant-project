@@ -286,4 +286,6 @@ body{
     height:100%;
     display:block;
     border-radius:50%;
+    filter: drop-shadow(0 0 40px #aa00ff)
+            drop-shadow(0 0 80px #00e5ff);
 }

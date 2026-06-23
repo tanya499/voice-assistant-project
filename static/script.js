@@ -294,14 +294,14 @@ if(canvas){
 
     requestAnimationFrame(animate);
 
-    orbMesh.rotation.x += 0.003;
-    orbMesh.rotation.y += 0.005;
+    orbMesh.rotation.x += 0.001;
+    orbMesh.rotation.y += 0.002;
 
     orbMesh.scale.x =
-        1 + Math.sin(Date.now()*0.002)*0.05;
+        1 + Math.sin(Date.now()*0.002)*0.01;
 
     orbMesh.scale.y =
-        1 + Math.cos(Date.now()*0.002)*0.05;
+        1 + Math.cos(Date.now()*0.002)*0.01;
 
     renderer.render(scene,camera);
     }
