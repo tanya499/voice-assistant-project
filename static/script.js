@@ -227,3 +227,69 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime();
+
+const canvas = document.getElementById("siriCanvas");
+
+if(canvas){
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+        75,
+        1,
+        0.1,
+        1000
+    );
+
+    const renderer = new THREE.WebGLRenderer({
+        canvas:canvas,
+        alpha:true,
+        antialias:true
+    });
+
+    renderer.setSize(260,260);
+
+    const geometry = new THREE.IcosahedronGeometry(2,20);
+
+    const material = new THREE.MeshStandardMaterial({
+        color:0x66ccff,
+        emissive:0xaa00ff,
+        roughness:0.2,
+        metalness:0.8
+    });
+
+    const orbMesh = new THREE.Mesh(
+        geometry,
+        material
+    );
+
+    scene.add(orbMesh);
+
+    const light1 = new THREE.PointLight(
+        0x00ffff,
+        3
+    );
+
+    light1.position.set(5,5,5);
+    scene.add(light1);
+
+    const light2 = new THREE.PointLight(
+        0xff00ff,
+        3
+    );
+
+    light2.position.set(-5,-5,5);
+    scene.add(light2);
+
+    camera.position.z = 5;
+
+    function animate(){
+        requestAnimationFrame(animate);
+
+        orbMesh.rotation.x += 0.003;
+        orbMesh.rotation.y += 0.005;
+
+        renderer.render(scene,camera);
+    }
+
+    animate();
+}

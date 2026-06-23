@@ -267,116 +267,23 @@ body{
     100%{transform:scale(1);}
 }
 
-.siri-orb{
-    position:relative;
-    width:220px;
-    height:220px;
-    border-radius:50%;
-    overflow:visible;
-    margin:auto;
-    background:transparent;
-}
-
-.blob{
-    position:absolute;
-    width:90px;
-    height:90px;
-    border-radius:50%;
-    opacity:.9;
-    filter:blur(12px);
-    mix-blend-mode:screen;
-}
-
-.blob1{
-    background:#00e5ff;
-    width:100px;
-    height:100px;
-    top:20px;
-    left:20px;
-    animation:move1 6s infinite ease-in-out;
-}
-
-.blob2{
-    background:#ff00ff;
-    width:80px;
-    height:80px;
-    top:30px;
-    right:20px;
-    animation:move2 7s infinite ease-in-out;
-}
-
-.blob3{
-    background:#7c4dff;
-    width:110px;
-    height:110px;
-    bottom:20px;
-    left:40px;
-    animation:move3 8s infinite ease-in-out;
-}
-
-.blob4{
-    background:#00ffff;
-    width:70px;
-    height:70px;
-    bottom:30px;
-    right:30px;
-    animation:move4 5s infinite ease-in-out;
-}
-
-@keyframes move1{
-    0%,100%{transform:translate(0,0);}
-    50%{transform:translate(25px,-20px);}
-}
-
-@keyframes move2{
-    0%,100%{transform:translate(0,0);}
-    50%{transform:translate(-25px,20px);}
-}
-
-@keyframes move3{
-    0%,100%{transform:translate(0,0);}
-    50%{transform:translate(20px,-25px);}
-}
-
-@keyframes move4{
-    0%,100%{transform:scale(1);}
-    50%{transform:scale(1.4);}
-}
-
-.syra-orb.listening .siri-orb{
-    animation:listenGlow .8s infinite;
-}
-
-.syra-orb.speaking .siri-orb{
-    animation:speakGlow .4s infinite;
-}
-
-@keyframes listenGlow{
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.15);
-    }
-}
-
-@keyframes speakGlow{
-    0%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.25);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-}
 
 .chat-container{
     display:flex;
     flex-direction:column;
     align-items:center;
+}
+
+.syra-orb{
+    width:260px;
+    height:260px;
+    margin:40px auto;
+    position:relative;
+}
+
+#siriCanvas{
+    width:100%;
+    height:100%;
+    display:block;
+    border-radius:50%;
 }
