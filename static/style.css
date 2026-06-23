@@ -292,7 +292,7 @@ body{
     top:50px;
 }
 
-h2{
+.syra-title{
     background: linear-gradient(
         90deg,
         #ff4fd8,
@@ -300,13 +300,16 @@ h2{
         #38bdf8
     );
 
+    background-clip: text;
     -webkit-background-clip: text;
+
+    color: transparent;
     -webkit-text-fill-color: transparent;
 
     font-weight: 700;
 }
 
-#micBtn{
+#mic-btn{
     background: linear-gradient(
         135deg,
         #7c3aed,
@@ -319,7 +322,7 @@ h2{
         0 0 25px rgba(168,85,247,.5);
 }
 
-#sendBtn{
+#send-btn{
     background: linear-gradient(
         135deg,
         #38bdf8,
@@ -339,6 +342,9 @@ h2{
         #a855f7
     );
 
+    background-clip:text;
     -webkit-background-clip:text;
+
+    color:transparent;
     -webkit-text-fill-color:transparent;
 }
