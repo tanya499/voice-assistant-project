@@ -228,83 +228,101 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-const canvas = document.getElementById("siriCanvas");
+    const geometry = new THREE.SphereGeometry(2, 128, 128);
 
-if(canvas){
-    const scene = new THREE.Scene();
+    const material = new THREE.ShaderMaterial({
 
-    const camera = new THREE.PerspectiveCamera(
-        75,
-        1,
-        0.1,
-        1000
-    );
+        uniforms: {
+            time: { value: 0 }
+        },
 
-    const renderer = new THREE.WebGLRenderer({
-        canvas:canvas,
-        alpha:true,
-        antialias:true
+        vertexShader: `
+            varying vec2 vUv;
+
+            void main() {
+
+                vUv = uv;
+
+                vec3 pos = position;
+
+                gl_Position =
+                projectionMatrix *
+                modelViewMatrix *
+                vec4(pos,1.0);
+            }
+        `,
+
+        fragmentShader: `
+            uniform float time;
+            varying vec2 vUv;
+
+            void main(){
+
+                vec2 uv = vUv - 0.5;
+
+                float r = length(uv);
+
+                float wave1 =
+                    sin(12.0 * r - time * 2.0);
+
+                float wave2 =
+                    sin(20.0 * uv.x + time * 1.5);
+
+                float wave3 =
+                    sin(20.0 * uv.y - time * 1.2);
+
+                vec3 color1 =
+                    vec3(1.0,0.0,1.0);
+
+                vec3 color2 =
+                    vec3(0.0,1.0,1.0);
+
+                vec3 color =
+                    mix(
+                        color1,
+                        color2,
+                        0.5 + 0.5*sin(
+                            wave1 + wave2 + wave3
+                        )
+                    );
+
+                float alpha =
+                    smoothstep(
+                        0.5,
+                        0.35,
+                        r
+                    );
+
+                gl_FragColor =
+                    vec4(color, alpha);
+            }
+        `,
+
+        transparent:true
     });
 
-    renderer.setSize(260,260);
-
-    const geometry = new THREE.IcosahedronGeometry(2, 50);
-
-    const material = new THREE.MeshPhysicalMaterial({
-    color: 0xaa00ff,
-    emissive: 0x6600ff,
-    emissiveIntensity: 2,
-
-    roughness: 0.1,
-    metalness: 0.2,
-
-    transmission: 0.9,
-    thickness: 1.5,
-
-    transparent: true,
-    opacity: 1
-    });
-
-    const orbMesh = new THREE.Mesh(
+    const orbMesh =
+    new THREE.Mesh(
         geometry,
         material
     );
 
     scene.add(orbMesh);
 
-    const light1 = new THREE.PointLight(
-        0x00ffff,
-        3
-    );
-
-    light1.position.set(5,5,5);
-    scene.add(light1);
-
-    const light2 = new THREE.PointLight(
-        0xff00ff,
-        3
-    );
-
-    light2.position.set(-5,-5,5);
-    scene.add(light2);
-
-    camera.position.z = 5;
+    camera.position.z = 4;
 
     function animate(){
 
     requestAnimationFrame(animate);
 
-    orbMesh.rotation.x += 0.001;
+    material.uniforms.time.value += 0.03;
+
     orbMesh.rotation.y += 0.002;
 
-    orbMesh.scale.x =
-        1 + Math.sin(Date.now()*0.002)*0.01;
-
-    orbMesh.scale.y =
-        1 + Math.cos(Date.now()*0.002)*0.01;
-
-    renderer.render(scene,camera);
-    }
-
-    animate();
+    renderer.render(
+        scene,
+        camera
+    );
 }
+
+animate();
