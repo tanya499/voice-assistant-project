@@ -248,7 +248,7 @@ if(canvas){
 
     renderer.setSize(260,260);
 
-    const geometry = new THREE.IcosahedronGeometry(2,20);
+    const geometry = new THREE.BoxGeometry(2,2,2);
 
     const material = new THREE.MeshStandardMaterial({
         color:0x66ccff,
