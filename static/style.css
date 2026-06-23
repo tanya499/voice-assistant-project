@@ -211,83 +211,6 @@ body{
     align-items:center;
 }
 
-.core{
-    width:200px;
-    height:200px;
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    background:
-    radial-gradient(
-        circle at center,
-        #38bdf8 0%,
-        #2563eb 40%,
-        #7c3aed 75%,
-        #0f172a 100%
-    );
-
-    box-shadow:
-        0 0 30px #38bdf8,
-        0 0 60px #2563eb,
-        0 0 120px #7c3aed;
-
-    overflow:hidden;
-}
-
-.core span{
-    color:white;
-    font-size:52px;
-    font-weight:100;
-    letter-spacing:12px;
-    font-family:'Segoe UI Light',sans-serif;
-
-    text-shadow:
-        0 0 10px rgba(255,255,255,.8),
-        0 0 25px rgba(255,255,255,.4);
-}
-
-.wave-left,
-.wave-right{
-    position:absolute;
-    width:180px;
-    height:4px;
-
-    background:
-    linear-gradient(
-    90deg,
-    transparent,
-    #00d4ff,
-    #ff00ff,
-    transparent);
-
-    animation:waveMove 1.5s infinite;
-}
-
-.wave-left{
-    left:-150px;
-}
-
-.wave-right{
-    right:-150px;
-}
-
-
-
-@keyframes waveMove{
-    0%{
-        transform:scaleY(1);
-    }
-    50%{
-        transform:scaleY(8);
-    }
-    100%{
-        transform:scaleY(1);
-    }
-}
-
 
 .syra-orb.idle{
     animation:pulse 3s infinite ease-in-out;
@@ -341,44 +264,119 @@ body{
     100%{transform:scale(1);}
 }
 
-.ring{
-    position:absolute;
+.siri-orb{
+    position:relative;
+    width:240px;
+    height:240px;
     border-radius:50%;
-    border:1px solid rgba(56,189,248,.35);
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.04);
+
+    backdrop-filter:blur(25px);
 
     box-shadow:
-    0 0 10px rgba(56,189,248,.4);
-
-    animation:rotateRing 8s linear infinite;
+    0 0 30px rgba(0,255,255,.3),
+    0 0 60px rgba(255,0,255,.25);
 }
 
-.ring1{
+.blob{
+    position:absolute;
+
     width:180px;
     height:180px;
+
+    border-radius:50%;
+
+    filter:blur(25px);
+
+    mix-blend-mode:screen;
 }
 
-.ring2{
-    width:220px;
-    height:220px;
-    animation-direction:reverse;
+.blob1{
+    background:#00ffff;
+    top:20px;
+    left:30px;
+
+    animation:move1 6s infinite ease-in-out;
 }
 
-.ring3{
-    width:260px;
-    height:260px;
+.blob2{
+    background:#ff00ff;
+    top:40px;
+    right:20px;
+
+    animation:move2 7s infinite ease-in-out;
 }
 
-.ring4{
-    width:340px;
-    height:340px;
-    animation-direction:reverse;
+.blob3{
+    background:#7c3aed;
+    bottom:20px;
+    left:40px;
+
+    animation:move3 8s infinite ease-in-out;
 }
 
-@keyframes rotateRing{
-    from{
-        transform:rotate(0deg);
+.blob4{
+    background:white;
+    width:120px;
+    height:120px;
+
+    top:60px;
+    left:60px;
+
+    animation:move4 5s infinite ease-in-out;
+}
+
+@keyframes move1{
+    0%,100%{transform:translate(0,0);}
+    50%{transform:translate(25px,-20px);}
+}
+
+@keyframes move2{
+    0%,100%{transform:translate(0,0);}
+    50%{transform:translate(-25px,20px);}
+}
+
+@keyframes move3{
+    0%,100%{transform:translate(0,0);}
+    50%{transform:translate(20px,-25px);}
+}
+
+@keyframes move4{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.4);}
+}
+
+.syra-orb.listening .siri-orb{
+    animation:listenGlow .8s infinite;
+}
+
+.syra-orb.speaking .siri-orb{
+    animation:speakGlow .4s infinite;
+}
+
+@keyframes listenGlow{
+    0%,100%{
+        transform:scale(1);
     }
-    to{
-        transform:rotate(360deg);
+
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+@keyframes speakGlow{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.25);
+    }
+
+    100%{
+        transform:scale(1);
     }
 }
