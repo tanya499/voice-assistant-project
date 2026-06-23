@@ -245,7 +245,7 @@ updateTime();
         antialias: true
     });
 
-    renderer.setSize(180,180);
+    renderer.setSize(220,220);
 
     const light1 = new THREE.PointLight(0x00ffff, 3);
     light1.position.set(5,5,5);
@@ -255,7 +255,7 @@ updateTime();
     light2.position.set(-5,-5,5);
     scene.add(light2);
 
-    const geometry = new THREE.SphereGeometry(1.2, 128, 128);
+    const geometry = new THREE.SphereGeometry(1.4, 128, 128);
 
     const material = new THREE.ShaderMaterial({
 
