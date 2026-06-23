@@ -298,9 +298,26 @@ updateTime();
                 float wave3 =
                     sin(20.0 * uv.y - time * 0.8);
 
-                vec3 color1 = vec3(0.95, 0.05, 0.15); // Deep Red
-                vec3 color2 = vec3(0.05, 0.05, 0.08); // Almost Black
-                vec3 color3 = vec3(0.55, 0.0, 0.1);   // Dark Crimson
+                vec3 colorRed =
+                    vec3(1.0, 0.1, 0.15);
+
+                vec3 colorBlack =
+                    vec3(0.05, 0.02, 0.08);
+
+                vec3 colorCyan =
+                    vec3(0.0, 0.9, 1.0);
+
+                vec3 color = mix(
+                    colorRed,
+                    colorCyan,
+                    0.5 + 0.5*sin(wave1 + wave2)
+                );
+
+                color = mix(
+                    color,
+                    colorBlack,
+                    r * 1.2
+                );
 
                 float mixVal =
                     0.5 + 0.5 * sin(
@@ -316,10 +333,14 @@ updateTime();
 
                 float alpha =
                     smoothstep(
-                        0.65,
+                        0.75,
                         0.05,
                         r
                     );
+
+                color += vec3(1.0,0.3,0.3) *
+                        smoothstep(0.2,0.0,r) *
+                        0.6;
 
                 gl_FragColor =
                     vec4(color, alpha);
