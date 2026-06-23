@@ -2,9 +2,7 @@ const btn = document.getElementById("mic-btn");
 const sendBtn = document.getElementById("send-btn");
 const textInput = document.getElementById("command-input");
 const output = document.getElementById("response");
-// const orb = document.querySelector(".syra-orb");
-const voiceOrb=document.getElementById("voiceOrb");
-voiceOrb.className="voice-orb idle";
+const orb = document.querySelector(".syra-orb");
 
 output.innerHTML = `
 <h3><i class="fas fa-robot"></i> Response</h3>
@@ -38,7 +36,7 @@ recognition.onresult = function(event) {
 
 async function processCommand(command){
 
-    voiceOrb.className = "voice-orb thinking";
+    orb.className = "voice-orb thinking";
 
     output.innerHTML = "You said: " + command;
 
@@ -61,7 +59,7 @@ async function processCommand(command){
 
         let data = await response.json();
 
-        voiceOrb.className = "voice-orb speaking";
+        orb.className = "voice-orb speaking";
 
         output.innerHTML = `
         <h3><i class="fas fa-robot"></i> Response</h3>
@@ -118,7 +116,7 @@ async function processCommand(command){
 
         speech.onend = function(){
 
-            voiceOrb.className = "voice-orb idle";
+            orb.className = "voice-orb idle";
 
         };
 
@@ -126,7 +124,7 @@ async function processCommand(command){
 
     }catch(error){
 
-        voiceOrb.className = "voice-orb idle";
+        orb.className = "voice-orb idle";
 
         output.innerHTML += "<br><br>❌ Server Error";
     }
@@ -163,7 +161,7 @@ btn.addEventListener("click",()=>{
 
     recognition.start();
 
-    voiceOrb.className = "voice-orb listening";
+    orb.className = "voice-orb listening";
 
     recognition.onresult = function(event){
 
