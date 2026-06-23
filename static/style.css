@@ -285,9 +285,5 @@ body{
 
     width:320px;
     height:320px;
-
-    filter:
-    drop-shadow(0 0 30px #ff00ff)
-    drop-shadow(0 0 60px #00e5ff)
-    drop-shadow(0 0 90px #7c4dff);
+    display:block;
 }

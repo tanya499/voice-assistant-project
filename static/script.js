@@ -228,6 +228,33 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
+    const canvas = document.getElementById("siriCanvas");
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(
+        75,
+        1,
+        0.1,
+        1000
+    );
+
+    const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        antialias: true
+    });
+
+    renderer.setSize(260,260);
+
+    const light1 = new THREE.PointLight(0x00ffff, 3);
+    light1.position.set(5,5,5);
+    scene.add(light1);
+
+    const light2 = new THREE.PointLight(0xff00ff, 3);
+    light2.position.set(-5,-5,5);
+    scene.add(light2);
+
     const geometry = new THREE.SphereGeometry(2, 128, 128);
 
     const material = new THREE.ShaderMaterial({
