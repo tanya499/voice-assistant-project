@@ -280,83 +280,62 @@ updateTime();
         `,
 
         fragmentShader: `
-uniform float time;
-varying vec2 vUv;
+            uniform float time;
+            varying vec2 vUv;
 
-void main() {
+            void main(){
 
-    vec2 uv = vUv - 0.5;
+                vec2 uv = vUv - 0.5;
 
-    float r = length(uv);
-    float angle = atan(uv.y, uv.x);
+                float r = length(uv);
 
-    float wave1 =
-        sin(angle * 8.0 - time * 2.5);
+                float wave1 =
+                    sin(12.0 * r - time * 1.0);
 
-    float wave2 =
-        sin(r * 20.0 + time * 2.0);
+                float wave2 =
+                    sin(20.0 * uv.x + time * 0.8);
 
-    float wave3 =
-        sin(angle * 12.0 + time * 1.8);
+                float wave3 =
+                    sin(20.0 * uv.y - time * 0.8);
 
-    vec3 pink =
-        vec3(1.0, 0.25, 0.75);
+                vec3 colorRed =
+                    vec3(1.0, 0.1, 0.15);
 
-    vec3 blue =
-        vec3(0.15, 0.75, 1.0);
+                vec3 colorBlack =
+                    vec3(0.05, 0.02, 0.08);
 
-    vec3 purple =
-        vec3(0.55, 0.25, 1.0);
+                vec3 colorCyan =
+                    vec3(0.0, 0.9, 1.0);
 
-    vec3 cyan =
-        vec3(0.15, 1.0, 0.9);
+                vec3 color = mix(
+                    colorRed,
+                    colorCyan,
+                    0.5 + 0.5*sin(wave1 + wave2)
+                );
 
-    float mix1 =
-        0.5 + 0.5 * wave1;
+                color = mix(
+                    color,
+                    colorBlack,
+                    r * 1.2
+                );
 
-    float mix2 =
-        0.5 + 0.5 * wave2;
+                float alpha =
+                    smoothstep(
+                        0.75,
+                        0.05,
+                        r
+                    );
 
-    float mix3 =
-        0.5 + 0.5 * wave3;
+                color += vec3(1.0,0.3,0.3) *
+                        smoothstep(0.2,0.0,r) *
+                        0.6;
 
-    vec3 colorA =
-        mix(pink, blue, mix1);
+                gl_FragColor =
+                    vec4(color, alpha);
+            }
+        `,
 
-    vec3 colorB =
-        mix(purple, cyan, mix2);
-
-    vec3 color =
-        mix(colorA, colorB, mix3);
-
-    float centerGlow =
-        exp(-r * 7.0);
-
-    color +=
-        vec3(1.0, 1.0, 1.0)
-        * centerGlow * 1.8;
-
-    float outerGlow =
-        exp(-r * 3.0);
-
-    color +=
-        vec3(0.2, 0.5, 1.0)
-        * outerGlow * 0.8;
-
-    color *= 1.25;
-
-    float alpha =
-        smoothstep(
-            0.85,
-            0.05,
-            r
-        );
-
-    gl_FragColor =
-        vec4(color, alpha);
-}
-`,
-transparent: true
+        transparent:true
     });
 
     const orbMesh =
