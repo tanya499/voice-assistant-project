@@ -228,7 +228,7 @@ body{
 }
 
 .syra-orb.speaking{
-    animation:speakPulse 1.5s infinite ease-in-out;
+    animation:speakPulse 1.8s infinite ease-in-out;
 }
 
 @keyframes pulse{
@@ -236,7 +236,7 @@ body{
         transform:scale(1);
     }
     50%{
-        transform:scale(1.003);
+        transform:scale(1.013);
     }
 }
 
@@ -245,7 +245,7 @@ body{
         transform:scale(1);
     }
     50%{
-        transform:scale(1.005);
+        transform:scale(1.015);
     }
 }
 
@@ -254,7 +254,7 @@ body{
         transform:scale(1);
     }
     50%{
-        transform:scale(1.005);
+        transform:scale(1.015);
     }
 }
 
@@ -264,7 +264,7 @@ body{
     }
 
     50%{
-        transform:scale(1.005);
+        transform:scale(1.015);
     }
 }
 
