@@ -202,13 +202,16 @@ body{
 }
 
 .syra-orb{
-    position:relative;
-    width:360px;
-    height:360px;
-    margin:30px auto;
+    width:260px;
+    height:260px;
+
+    margin:40px auto;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
+    position:relative;
 }
 
 
@@ -269,6 +272,7 @@ body{
     width:240px;
     height:240px;
     border-radius:50%;
+    margin:auto;
 
     overflow:hidden;
 
@@ -379,4 +383,10 @@ body{
     100%{
         transform:scale(1);
     }
+}
+
+.chat-container{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
