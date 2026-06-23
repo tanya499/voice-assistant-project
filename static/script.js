@@ -287,69 +287,67 @@ void main() {
 
     vec2 uv = vUv - 0.5;
 
-    float angle = time * 0.4;
-
-    mat2 rot = mat2(
-        cos(angle), -sin(angle),
-        sin(angle),  cos(angle)
-    );
-
-    uv = rot * uv;
-
     float r = length(uv);
+    float angle = atan(uv.y, uv.x);
 
     float wave1 =
-        sin(r * 25.0 - time * 4.0);
+        sin(angle * 8.0 - time * 2.5);
 
     float wave2 =
-        sin(atan(uv.y, uv.x) * 8.0 + time * 2.0);
+        sin(r * 20.0 + time * 2.0);
 
-    vec3 blue =
-        vec3(0.0, 0.7, 1.0);
-
-    vec3 purple =
-        vec3(0.7, 0.2, 1.0);
+    float wave3 =
+        sin(angle * 12.0 + time * 1.8);
 
     vec3 pink =
-        vec3(1.0, 0.2, 0.8);
+        vec3(1.0, 0.25, 0.75);
+
+    vec3 blue =
+        vec3(0.15, 0.75, 1.0);
+
+    vec3 purple =
+        vec3(0.55, 0.25, 1.0);
 
     vec3 cyan =
-        vec3(0.0, 1.0, 0.9);
+        vec3(0.15, 1.0, 0.9);
+
+    float mix1 =
+        0.5 + 0.5 * wave1;
+
+    float mix2 =
+        0.5 + 0.5 * wave2;
+
+    float mix3 =
+        0.5 + 0.5 * wave3;
+
+    vec3 colorA =
+        mix(pink, blue, mix1);
+
+    vec3 colorB =
+        mix(purple, cyan, mix2);
 
     vec3 color =
-        mix(
-            blue,
-            purple,
-            0.5 + 0.5 * wave1
-        );
+        mix(colorA, colorB, mix3);
 
-    color =
-        mix(
-            color,
-            pink,
-            0.5 + 0.5 * wave2
-        );
+    float centerGlow =
+        exp(-r * 7.0);
 
-    color =
-        mix(
-            color,
-            cyan,
-            0.4
-        );
+    color +=
+        vec3(1.0, 1.0, 1.0)
+        * centerGlow * 1.8;
 
-    float glow =
-        exp(-r * 4.0);
+    float outerGlow =
+        exp(-r * 3.0);
 
-    color += glow * 0.8;
+    color +=
+        vec3(0.2, 0.5, 1.0)
+        * outerGlow * 0.8;
 
-    float pulse =
-        1.0 +
-        0.1 *
-        sin(time * 6.0);
+    color *= 1.25;
 
     float alpha =
         smoothstep(
-            0.7 * pulse,
+            0.85,
             0.05,
             r
         );
