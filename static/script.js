@@ -299,18 +299,27 @@ updateTime();
                     sin(20.0 * uv.y - time * 0.8);
 
                 vec3 colorRed =
-                    vec3(1.0, 0.1, 0.15);
+                    vec3(0.95, 0.05, 0.08);
+
+                vec3 colorGreen =
+                    vec3(0.00, 0.35, 0.18);
+
+                vec3 colorBlue =
+                    vec3(0.05, 0.25, 0.45);
 
                 vec3 colorBlack =
-                    vec3(0.05, 0.02, 0.08);
-
-                vec3 colorCyan =
-                    vec3(0.0, 0.9, 1.0);
+                    vec3(0.01, 0.01, 0.01);
 
                 vec3 color = mix(
                     colorRed,
-                    colorCyan,
+                    colorGreen,
                     0.5 + 0.5*sin(wave1 + wave2)
+                );
+
+                color = mix(
+                    color,
+                    colorBlue,
+                    0.08
                 );
 
                 color = mix(
@@ -326,9 +335,9 @@ updateTime();
                         r
                     );
 
-                color += vec3(1.0,0.3,0.3) *
-                        smoothstep(0.2,0.0,r) *
-                        0.6;
+                color += vec3(1.0,1.0,1.0) *
+                        smoothstep(0.15,0.0,r) *
+                        0.8;
 
                 gl_FragColor =
                     vec4(color, alpha);
