@@ -321,18 +321,18 @@ vec3 color =
     + colorGreen * greenMask
     + colorBlue * blueMask;
 
-color *= 0.55;
+color *= 0.45;
 
                 float alpha =
                     smoothstep(
-                        0.75,
-                        0.10,
+                        0.60,
+                        0.15,
                         r
                     );
 
                 color += vec3(1.0,1.0,1.0) *
          smoothstep(0.25,0.0,r) *
-         1.5;
+         0.4;
 
                 gl_FragColor =
                     vec4(color, alpha);
@@ -356,7 +356,7 @@ color *= 0.55;
 
     requestAnimationFrame(animate);
 
-    material.uniforms.time.value += 0.01;
+    material.uniforms.time.value += 0.001;
 
     orbMesh.rotation.y += 0.0005;
 
