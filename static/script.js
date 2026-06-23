@@ -356,9 +356,9 @@ color *= 0.45;
 
     requestAnimationFrame(animate);
 
-    material.uniforms.time.value += 0.001;
+    material.uniforms.time.value += 0.05;
 
-    orbMesh.rotation.y += 0.0005;
+    orbMesh.rotation.y += 0.002;
 
     renderer.render(
         scene,

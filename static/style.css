@@ -236,7 +236,7 @@ body{
         transform:scale(1);
     }
     50%{
-        transform:scale(1.013);
+        transform:scale(1.02);
     }
 }
 
@@ -245,7 +245,7 @@ body{
         transform:scale(1);
     }
     50%{
-        transform:scale(1.015);
+        transform:scale(1.02);
     }
 }
 
@@ -254,7 +254,7 @@ body{
         transform:scale(1);
     }
     50%{
-        transform:scale(1.015);
+        transform:scale(1.02);
     }
 }
 
@@ -264,7 +264,7 @@ body{
     }
 
     50%{
-        transform:scale(1.015);
+        transform:scale(1.02);
     }
 }
 
