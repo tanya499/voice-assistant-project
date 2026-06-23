@@ -1,108 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>SYRA - Smart Voice Assistant</title>
 
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-<div class="main-container">
+    <div class="main-container">
 
-    <div class="chat-container">
+        <div class="chat-container">
 
-        <!-- Logo -->
-        <div class="syra-orb">
+            <!-- Logo -->
+            <div class="syra-orb idle" id="voiceOrb">
 
-            <div class="ring ring1"></div>
-            <div class="ring ring2"></div>
-            <div class="ring ring3"></div>
-            <div class="ring ring4"></div>
+                <div class="ring ring1"></div>
+                <div class="ring ring2"></div>
+                <div class="ring ring3"></div>
+                <div class="ring ring4"></div>
 
-            <div class="wave-left"></div>
-            <div class="wave-right"></div>
+                <div class="wave-left"></div>
+                <div class="wave-right"></div>
 
-            <div class="core">
-                SYRA
+                <div class="core">
+                    <span>SYRA</span>
+                </div>
             </div>
 
-        </div>
+            <h2 class="title">SYRA Voice Assistant</h2>
+            <p class="subtitle">
+                Smart Voice & Command Assistant
+            </p>
 
-</div>
+            <div id="datetime"></div>
 
+            <!-- Input Box -->
+            <div class="input-box">
 
-    </div>
+                <input type="text" id="command-input" placeholder="Type your command here...">
 
-        <h2 class="title">SYRA Voice Assistant</h2>
-        <p class="subtitle">
-        Smart Voice & Command Assistant
-        </p>
+                <button id="mic-btn" class="icon-btn mic-btn">
+                    <i class="fas fa-microphone"></i>
+                </button>
 
-        <div id="datetime"></div>
-
-        <!-- Input Box -->
-        <div class="input-box">
-
-            <input
-                type="text"
-                id="command-input"
-                placeholder="Type your command here..."
-            >
-
-            <button id="mic-btn" class="icon-btn mic-btn">
-                <i class="fas fa-microphone"></i>
-            </button>
-
-            <button id="send-btn" class="icon-btn send-btn">
-                <i class="fas fa-paper-plane"></i>
-            </button>
-
-        </div>
-
-        <!-- Response + History -->
-        <div class="bottom-section">
-
-            <!-- Response Box -->
-            <div id="response">
-
-                <h3>
-                    <i class="fas fa-robot"></i>
-                    Response
-                </h3>
-
-                Assistant is waiting for your command...
-
-            </div>
-
-            <!-- Chat History -->
-            <div class="history-panel">
-
-                <h3>
-                    <i class="fas fa-clock"></i>
-                    Chat History
-                </h3>
-
-                <div id="history-list"></div>
-
-                <button id="clear-history">
-                    <i class="fas fa-trash"></i>
-                    Clear History
+                <button id="send-btn" class="icon-btn send-btn">
+                    <i class="fas fa-paper-plane"></i>
                 </button>
 
             </div>
 
+            <!-- Response + History -->
+            <div class="bottom-section">
+
+                <!-- Response Box -->
+                <div id="response">
+
+                    <h3>
+                        <i class="fas fa-robot"></i>
+                        Response
+                    </h3>
+
+                    Assistant is waiting for your command...
+
+                </div>
+
+                <!-- Chat History -->
+                <div class="history-panel">
+
+                    <h3>
+                        <i class="fas fa-clock"></i>
+                        Chat History
+                    </h3>
+
+                    <div id="history-list"></div>
+
+                    <button id="clear-history">
+                        <i class="fas fa-trash"></i>
+                        Clear History
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
 
-</div>
-
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
+
 </html>

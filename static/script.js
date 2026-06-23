@@ -19,24 +19,35 @@ recognition.onresult = function(event) {
 
     let command = event.results[0][0].transcript.toLowerCase();
 
-    if(command.includes("hey syra")) {
+    if(
+    command.includes("hey syra") ||
+    command.includes("hey sira") ||
+    command.includes("hey syria") ||
+    command.includes("hey saira") ||
+    command.includes("hey sara") ||
+    command.includes("hey sai ram")
+){
 
-        output.innerHTML = "👋 Hi! How can I help you?";
+    output.innerHTML = "👋 Hi! How can I help you?";
 
-        let speech = new SpeechSynthesisUtterance(
-            "Hi! How can I help you?"
-        );
+    let speech = new SpeechSynthesisUtterance(
+        "Hi! How can I help you?"
+    );
 
-        speechSynthesis.speak(speech);
-        return;
-    }
+    speech.onend = function(){
+        orb.className = "syra-orb idle";
+    };
+
+    speechSynthesis.speak(speech);
+    return;
+}
 
     processCommand(command);
 };
 
 async function processCommand(command){
 
-    orb.className = "voice-orb thinking";
+    orb.className = "syra-orb thinking";
 
     output.innerHTML = "You said: " + command;
 
@@ -59,7 +70,7 @@ async function processCommand(command){
 
         let data = await response.json();
 
-        orb.className = "voice-orb speaking";
+        orb.className = "syra-orb speaking";
 
         output.innerHTML = `
         <h3><i class="fas fa-robot"></i> Response</h3>
@@ -116,7 +127,7 @@ async function processCommand(command){
 
         speech.onend = function(){
 
-            orb.className = "voice-orb idle";
+            orb.className = "syra-orb idle";
 
         };
 
@@ -124,7 +135,7 @@ async function processCommand(command){
 
     }catch(error){
 
-        orb.className = "voice-orb idle";
+        orb.className = "syra-orb idle";
 
         output.innerHTML += "<br><br>❌ Server Error";
     }
@@ -161,7 +172,7 @@ btn.addEventListener("click",()=>{
 
     recognition.start();
 
-    orb.className = "voice-orb listening";
+    orb.className = "syra-orb listening";
 
     recognition.onresult = function(event){
 
@@ -191,6 +202,8 @@ btn.addEventListener("click",()=>{
 };
 
     recognition.onerror = function(event){
+
+        orb.className = "syra-orb idle";
 
         output.innerHTML =
         "❌ Error: " + event.error;
