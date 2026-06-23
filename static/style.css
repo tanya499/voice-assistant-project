@@ -269,67 +269,51 @@ body{
 
 .siri-orb{
     position:relative;
-    width:240px;
-    height:240px;
+    width:220px;
+    height:220px;
     border-radius:50%;
-    margin:auto;
-
     overflow:hidden;
-
-    background:rgba(255,255,255,.04);
-
-    backdrop-filter:blur(25px);
-
-    box-shadow:
-    0 0 30px rgba(0,255,255,.3),
-    0 0 60px rgba(255,0,255,.25);
+    margin:auto;
+    background:transparent;
 }
 
 .blob{
     position:absolute;
-
-    width:180px;
-    height:180px;
-
+    width:120px;
+    height:120px;
     border-radius:50%;
-
-    filter:blur(25px);
-
+    opacity:.8;
+    filter:blur(30px);
     mix-blend-mode:screen;
 }
 
 .blob1{
-    background:#00ffff;
+    background:#00e5ff;
     top:20px;
-    left:30px;
-
+    left:20px;
     animation:move1 6s infinite ease-in-out;
 }
 
 .blob2{
     background:#ff00ff;
-    top:40px;
+    top:20px;
     right:20px;
-
     animation:move2 7s infinite ease-in-out;
 }
 
 .blob3{
-    background:#7c3aed;
+    background:#7c4dff;
     bottom:20px;
     left:40px;
-
     animation:move3 8s infinite ease-in-out;
 }
 
 .blob4{
-    background:white;
-    width:120px;
-    height:120px;
-
-    top:60px;
-    left:60px;
-
+    background:#ffffff;
+    width:70px;
+    height:70px;
+    top:75px;
+    left:75px;
     animation:move4 5s infinite ease-in-out;
 }
 
