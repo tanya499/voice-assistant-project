@@ -2,7 +2,8 @@ const btn = document.getElementById("mic-btn");
 const sendBtn = document.getElementById("send-btn");
 const textInput = document.getElementById("command-input");
 const output = document.getElementById("response");
-const logo = document.getElementById("syraLogo");
+const voiceOrb=document.getElementById("voiceOrb");
+voiceOrb.className="voice-orb idle";
 
 output.innerHTML = `
 <h3><i class="fas fa-robot"></i> Response</h3>
@@ -36,8 +37,7 @@ recognition.onresult = function(event) {
 
 async function processCommand(command){
 
-    logo.classList.remove("listening");
-    logo.classList.add("thinking");
+    voiceOrb.className = "voice-orb thinking";
 
     output.innerHTML = "You said: " + command;
 
@@ -60,8 +60,7 @@ async function processCommand(command){
 
         let data = await response.json();
 
-        logo.classList.remove("thinking");
-        logo.classList.add("speaking");
+        voiceOrb.className = "voice-orb speaking";
 
         output.innerHTML = `
         <h3><i class="fas fa-robot"></i> Response</h3>
@@ -116,18 +115,18 @@ async function processCommand(command){
 
         speech.lang = "en-IN";
 
-        speech.onend = () => {
-            logo.classList.remove("speaking");
+        speech.onend = function(){
+
+            voiceOrb.className = "voice-orb idle";
+
         };
 
         speechSynthesis.speak(speech);
 
     }catch(error){
 
-        logo.classList.remove("listening");
-        logo.classList.remove("thinking");
-        logo.classList.remove("speaking");
-        
+        voiceOrb.className = "voice-orb idle";
+
         output.innerHTML += "<br><br>❌ Server Error";
     }
 }
@@ -161,12 +160,9 @@ btn.addEventListener("click",()=>{
 
     output.innerHTML = "🎤 Listening...";
 
-    logo.classList.add("listening");
-
     recognition.start();
 
-    logo.classList.remove("thinking","speaking");
-    logo.classList.add("listening");
+    voiceOrb.className = "voice-orb listening";
 
     recognition.onresult = function(event){
 

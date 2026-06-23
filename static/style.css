@@ -12,23 +12,6 @@ body{
     padding-top:20px;
 }
 
-.logo{
-    display:flex;
-    justify-content:center;
-    margin-bottom:20px;
-}
-
-.logo img{
-    width:180px;
-    height:180px;
-    border-radius:25px;
-    object-fit:cover;
-
-    box-shadow:
-    0 0 8px rgba(0,212,255,0.4),
-    0 0 15px rgba(0,212,255,0.3);
-}
-
 .input-box{
     display:flex;
     align-items:center;
@@ -218,76 +201,6 @@ body{
     margin-bottom:20px;
 }
 
-#syraLogo{
-    width:180px;
-    height:180px;
-    border-radius:25px;
-    object-fit:cover;
-    transition:all 0.3s ease;
-    animation:idleGlow 3s infinite;
-}
-
-@keyframes idleGlow {
-    0%,100% {
-        transform: scale(1);
-        filter: drop-shadow(0 0 10px #00d4ff);
-    }
-    50% {
-        transform: scale(1.03);
-        filter: drop-shadow(0 0 25px #00d4ff);
-    }
-}
-
-.listening {
-    animation: listeningPulse 0.8s infinite;
-}
-
-@keyframes listeningPulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1); }
-}
-
-
-.thinking{
-    animation:thinkingSpin 2s linear infinite;
-}
-
-@keyframes thinkingSpin{
-    from{transform:rotate(0deg);}
-    to{transform:rotate(360deg);}
-}
-
-.speaking{
-    animation:speakingPulse 0.5s infinite alternate;
-}
-
-@keyframes speakingPulse{
-    from{transform:scale(1);}
-    to{transform:scale(1.12);}
-}
-
-/* ===== SYRA ADVANCED LOGO ===== */
-
-.logo-wrapper{
-    position:relative;
-    width:250px;
-    height:250px;
-    margin:auto;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.logo-img{
-    width:180px;
-    height:180px;
-    border-radius:25px;
-    object-fit:cover;
-    z-index:10;
-    transition:all .4s ease;
-}
-
 .outer-ring,
 .middle-ring,
 .inner-ring{
@@ -363,13 +276,125 @@ body{
     to{transform:rotate(360deg);}
 }
 
-/* Speaking */
 
-.speaking .logo-img{
-    animation:speakPulse .5s infinite alternate;
+.voice-orb{
+    position:relative;
+    width:250px;
+    height:250px;
+    margin:auto;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
-@keyframes speakPulse{
-    from{transform:scale(1);}
-    to{transform:scale(1.12);}
+.center-circle{
+    width:120px;
+    height:120px;
+
+    border-radius:50%;
+
+    background:linear-gradient(
+    135deg,
+    #00d4ff,
+    #8b5cf6
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:28px;
+    font-weight:bold;
+
+    z-index:10;
+
+    box-shadow:
+    0 0 30px #00d4ff,
+    0 0 60px #8b5cf6;
+}
+
+.wave{
+    position:absolute;
+
+    border:2px solid #38bdf8;
+
+    border-radius:50%;
+
+    opacity:0.6;
+}
+
+.wave1{
+    width:150px;
+    height:150px;
+}
+
+.wave2{
+    width:190px;
+    height:190px;
+}
+
+.wave3{
+    width:230px;
+    height:230px;
+}
+
+.voice-orb.idle .wave{
+    animation:idleWave 4s infinite;
+}
+
+.voice-orb.listening .wave{
+    animation:listeningWave 0.8s infinite;
+}
+
+.voice-orb.thinking .wave{
+    animation:thinkingWave 1s infinite linear;
+}
+
+.voice-orb.speaking .wave{
+    animation:speakingWave 0.4s infinite;
+}
+
+@keyframes idleWave{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.05);}
+    100%{transform:scale(1);}
+}
+
+@keyframes listeningWave{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.25);}
+    100%{transform:scale(1);}
+}
+
+@keyframes thinkingWave{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+@keyframes speakingWave{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.35);}
+    100%{transform:scale(1);}
+}
+
+@keyframes ripple {
+    0%{
+        transform: translate(-50%,-50%) scale(1);
+        opacity: 1;
+    }
+
+    100%{
+        transform: translate(-50%,-50%) scale(1.6);
+        opacity: 0;
+    }
+}
+
+.voice-orb.listening .wave{
+    animation: ripple 1s infinite;
+}
+
+.voice-orb.speaking .wave{
+    animation: ripple 0.5s infinite;
 }
