@@ -398,3 +398,126 @@ body{
 .voice-orb.speaking .wave{
     animation: ripple 0.5s infinite;
 }
+
+.syra-orb{
+    position:relative;
+    width:260px;
+    height:260px;
+    margin:30px auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.core{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+
+    background:
+    radial-gradient(circle,
+    #58dfff,
+    #6d5dfc,
+    #2a0f5f);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:32px;
+    font-weight:bold;
+
+    box-shadow:
+    0 0 20px #00d4ff,
+    0 0 40px #7c3aed;
+
+    animation:orbPulse 3s infinite;
+}
+
+.ring{
+    position:absolute;
+    border-radius:50%;
+    border:1.5px solid rgba(0,212,255,.4);
+}
+
+.ring1{
+    width:150px;
+    height:150px;
+    animation:rotate1 8s linear infinite;
+}
+
+.ring2{
+    width:180px;
+    height:180px;
+    animation:rotate2 12s linear infinite reverse;
+}
+
+.ring3{
+    width:220px;
+    height:220px;
+    animation:rotate1 18s linear infinite;
+}
+
+.ring4{
+    width:250px;
+    height:250px;
+    border-color:rgba(255,0,255,.3);
+    animation:rotate2 22s linear infinite;
+}
+
+.wave-left,
+.wave-right{
+    position:absolute;
+    width:180px;
+    height:4px;
+
+    background:
+    linear-gradient(
+    90deg,
+    transparent,
+    #00d4ff,
+    #ff00ff,
+    transparent);
+
+    animation:waveMove 1.5s infinite;
+}
+
+.wave-left{
+    left:-150px;
+}
+
+.wave-right{
+    right:-150px;
+}
+
+@keyframes rotate1{
+    from{transform:rotate(0deg);}
+    to{transform:rotate(360deg);}
+}
+
+@keyframes rotate2{
+    from{transform:rotate(360deg);}
+    to{transform:rotate(0deg);}
+}
+
+@keyframes orbPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+@keyframes waveMove{
+    0%{
+        transform:scaleY(1);
+    }
+    50%{
+        transform:scaleY(8);
+    }
+    100%{
+        transform:scaleY(1);
+    }
+}

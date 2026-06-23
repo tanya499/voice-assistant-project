@@ -2,6 +2,7 @@ const btn = document.getElementById("mic-btn");
 const sendBtn = document.getElementById("send-btn");
 const textInput = document.getElementById("command-input");
 const output = document.getElementById("response");
+const orb = document.querySelector(".syra-orb");
 const voiceOrb=document.getElementById("voiceOrb");
 voiceOrb.className="voice-orb idle";
 
