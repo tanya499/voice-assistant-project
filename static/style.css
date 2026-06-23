@@ -275,15 +275,15 @@ body{
 }
 
 .syra-orb{
-    width:260px;
-    height:260px;
+    width:220px;
+    height:220px;
     margin:40px auto;
     position:relative;
 }
 
 #siriCanvas{
 
-    width:320px;
-    height:320px;
+    width:220px;
+    height:220px;
     display:block;
 }

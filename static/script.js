@@ -245,7 +245,7 @@ updateTime();
         antialias: true
     });
 
-    renderer.setSize(260,260);
+    renderer.setSize(180,180);
 
     const light1 = new THREE.PointLight(0x00ffff, 3);
     light1.position.set(5,5,5);
@@ -255,7 +255,7 @@ updateTime();
     light2.position.set(-5,-5,5);
     scene.add(light2);
 
-    const geometry = new THREE.SphereGeometry(2, 128, 128);
+    const geometry = new THREE.SphereGeometry(1.2, 128, 128);
 
     const material = new THREE.ShaderMaterial({
 
@@ -290,33 +290,34 @@ updateTime();
                 float r = length(uv);
 
                 float wave1 =
-                    sin(12.0 * r - time * 2.0);
+                    sin(12.0 * r - time * 1.0);
 
                 float wave2 =
-                    sin(20.0 * uv.x + time * 1.5);
+                    sin(20.0 * uv.x + time * 0.8);
 
                 float wave3 =
-                    sin(20.0 * uv.y - time * 1.2);
+                    sin(20.0 * uv.y - time * 0.8);
 
-                vec3 color1 =
-                    vec3(1.0,0.0,1.0);
+                vec3 color1 = vec3(0.95, 0.05, 0.15); // Deep Red
+                vec3 color2 = vec3(0.05, 0.05, 0.08); // Almost Black
+                vec3 color3 = vec3(0.55, 0.0, 0.1);   // Dark Crimson
 
-                vec3 color2 =
-                    vec3(0.0,1.0,1.0);
+                float mixVal =
+                    0.5 + 0.5 * sin(
+                        wave1 + wave2 + wave3
+                    );
 
                 vec3 color =
                     mix(
-                        color1,
-                        color2,
-                        0.5 + 0.5*sin(
-                            wave1 + wave2 + wave3
-                        )
+                        mix(color1, color2, mixVal),
+                        color3,
+                        0.35
                     );
 
                 float alpha =
                     smoothstep(
-                        0.5,
-                        0.35,
+                        0.65,
+                        0.05,
                         r
                     );
 
@@ -342,9 +343,9 @@ updateTime();
 
     requestAnimationFrame(animate);
 
-    material.uniforms.time.value += 0.03;
+    material.uniforms.time.value += 0.01;
 
-    orbMesh.rotation.y += 0.002;
+    orbMesh.rotation.y += 0.0005;
 
     renderer.render(
         scene,
