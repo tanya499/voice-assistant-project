@@ -113,6 +113,7 @@ def command():
         try:
             response = model.generate_content(text)
             reply = re.sub(r'[*#`]','',response.text)
+            print("Saving:", text)
         except Exception as e:
             reply = "Error: " + str(e)
 
@@ -131,6 +132,7 @@ def command():
     )
 
     conn.commit()
+    print("Print Saved Successfully")
     conn.close()
 
     return jsonify({"response": reply})
